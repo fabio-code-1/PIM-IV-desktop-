@@ -1,0 +1,69 @@
+﻿<Window x:Class="FolhaPagamentoDesktop.Detalhes"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FolhaPagamentoDesktop"
+        mc:Ignorable="d"
+        Title="Detalhes" Height="450" Width="800">
+    <Grid Margin="10,0,0,-45">
+        <local:MenuControl Margin="0,0,0,10"/>
+        <Viewbox Margin="250,107,-191,86">
+            <Calendar x:Name="calendar" Width="204" Height="177">
+                <Calendar.CalendarDayButtonStyle>
+                    <Style TargetType="{x:Type CalendarDayButton}">
+                        <EventSetter Event="FrameworkElement.Loaded" Handler="CalendarDayButton_Loaded"/>
+                    </Style>
+                </Calendar.CalendarDayButtonStyle>
+            </Calendar>
+        </Viewbox>
+        <Rectangle HorizontalAlignment="Left" Height="317" Margin="64,76,0,0" Stroke="Black" VerticalAlignment="Top" Width="278" Fill="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}"/>
+
+
+        <Image x:Name="logotelecenter" HorizontalAlignment="Left" Height="108" Margin="64,91,0,0" VerticalAlignment="Top" Width="116">
+            <Image.OpacityMask>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="#FF831818" Offset="1"/>
+                </LinearGradientBrush>
+            </Image.OpacityMask>
+            <Image.Source>
+                <BitmapImage UriSource="/images/user.png"/>
+            </Image.Source>
+        </Image>
+
+        <!-- Edição de informações do usuário -->
+        <TextBlock HorizontalAlignment="Left" Margin="174,116,0,0" TextWrapping="Wrap" Text="Cargo:" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="campoCargo" HorizontalAlignment="Left" Margin="234,116,0,0" VerticalAlignment="Top" Width="99" FontSize="18"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="177,154,0,0" TextWrapping="Wrap" Text="Nome:" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="campoNome" HorizontalAlignment="Left" Margin="243,154,0,0" VerticalAlignment="Top" Width="99" FontSize="18" TextDecorations="Underline"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="92,215,0,0" TextWrapping="Wrap" Text="Endereço:" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="campoEndereco" HorizontalAlignment="Left" Margin="177,215,0,0" VerticalAlignment="Top" Width="150" FontSize="18"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="91,250,0,0" TextWrapping="Wrap" Text="Telefone:" VerticalAlignment="Top" FontSize="18" FontWeight="Bold"/>
+        <TextBlock x:Name="campoTelefone" HorizontalAlignment="Left" Margin="174,250,0,0" VerticalAlignment="Top" Width="150" FontSize="18"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="91,298,0,0" TextWrapping="Wrap" Text="RG:" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="campoRG" HorizontalAlignment="Left" Margin="120,298,0,0" VerticalAlignment="Top" Width="150" FontSize="18"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="87,336,0,0" TextWrapping="Wrap" Text="CPF:" VerticalAlignment="Top" FontWeight="Bold" FontSize="18"/>
+        <TextBlock x:Name="campoCPF" HorizontalAlignment="Left" Margin="127,336,0,0" VerticalAlignment="Top" Width="150" FontSize="18"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="475,91,0,0" TextWrapping="Wrap" Text="Presenças:" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FF34AB00" Width="66"/>
+        <TextBlock x:Name="campoPresenca" HorizontalAlignment="Left" Margin="534,91,0,0" VerticalAlignment="Top" Width="23"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="580,91,0,0" TextWrapping="Wrap" Text="Faltas:" VerticalAlignment="Top" FontWeight="Bold" Foreground="Red"/>
+        <TextBlock x:Name="campoFalta" HorizontalAlignment="Left" Margin="616,91,0,0" VerticalAlignment="Top" Width="22"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="652,91,0,0" TextWrapping="Wrap" Text="Atestados:" VerticalAlignment="Top" FontWeight="Bold" Foreground="#FFC3B303"/>
+        <TextBlock x:Name="campoAtestado" HorizontalAlignment="Left" Margin="711,91,0,0" VerticalAlignment="Top" Width="20"/>
+
+        <!-- Calendário -->
+
+
+
+    </Grid>
+
+</Window>

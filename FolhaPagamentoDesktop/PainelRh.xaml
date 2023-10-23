@@ -1,0 +1,78 @@
+﻿<Window x:Class="FolhaPagamentoDesktop.PainelRh"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        xmlns:local="clr-namespace:FolhaPagamentoDesktop"
+        mc:Ignorable="d"
+        Title="PainelRh" Height="525" Width="957">
+    <Grid Margin="10,0,0,5">
+
+        <Calendar x:Name="calendario" HorizontalAlignment="Left" Margin="284,283,0,0" VerticalAlignment="Top" BorderBrush="#FF65FF00" Background="#FFB5F39A"/>
+        <DataGrid x:Name="tabela_funcionarios" AutoGenerateColumns="False" Margin="10,68,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="907" Height="171">
+            <DataGrid.ColumnHeaderStyle>
+                <Style TargetType="{x:Type DataGridColumnHeader}">
+                    <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                </Style>
+            </DataGrid.ColumnHeaderStyle>
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Cargo" Binding="{Binding Cargo}" Width="100"/>
+                <DataGridTextColumn Header="Nome" Binding="{Binding Nome}" Width="150"/>
+                <DataGridTextColumn Header="Endereço" Binding="{Binding Endereco}" Width="200"/>
+                <DataGridTextColumn Header="Telefone" Binding="{Binding Telefone}" Width="100"/>
+                <DataGridTextColumn Header="RG" Binding="{Binding RG}" Width="100"/>
+                <DataGridTextColumn Header="CPF" Binding="{Binding CPF}" Width="100"/>
+                <DataGridTemplateColumn Header="Ações" Width="*">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <StackPanel Orientation="Horizontal">
+                                <Button Content="Excluir" Click="Excluir_Click"/>
+                                <Button Content="Detalhes" Click="Detalhes_Click"/>
+                                <CheckBox IsChecked="{Binding IsSelected, Mode=TwoWay}" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+            <DataGrid.Style>
+                <Style TargetType="DataGrid">
+                    <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+                </Style>
+            </DataGrid.Style>
+        </DataGrid>
+        <Button x:Name="excluir_selecionado" Content="Excluir Selecionado" HorizontalAlignment="Left" Margin="744,43,0,0" VerticalAlignment="Top" Width="173" Click="Button_Click"/>
+
+        <lvc:CartesianChart x:Name="cartesianChart" Margin="485,252,30,33">
+            <!-- Defina sua série de dados aqui -->
+        </lvc:CartesianChart>
+        <local:MenuControl Margin="0,0,0,10"/>
+
+        <StackPanel Margin="29,252,680,10" Background="#FF79E869">
+            <TextBox x:Name="novaTarefaTextBox" Width="200" Margin="5" Foreground="Gray" Text="Digite sua tarefa aqui..." GotFocus="RemovePlaceholder" LostFocus="AddPlaceholder"/>
+            <Button Content="Adicionar Tarefa" Click="AdicionarTarefa_Click" Margin="5"/>
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Height="175">
+                <ListBox Name="tarefasList" Background="{DynamicResource {x:Static SystemColors.ActiveBorderBrushKey}}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding}" />
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </ScrollViewer>
+        </StackPanel>
+
+
+
+
+
+
+
+
+
+    </Grid>
+
+
+
+
+</Window>
